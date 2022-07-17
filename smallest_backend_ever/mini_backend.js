@@ -1,5 +1,5 @@
 let jsonFromServer = {};
-let BASE_SERVER_URL = 'https://marcos-tech.de/smallest_backend_ever';
+let BASE_SERVER_URL = 'https://join.marcos-tech.de/smallest_backend_ever';
 
 const backend = {
     setItem: function(key, item) {
