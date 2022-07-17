@@ -1,0 +1,121 @@
+
+/*Responsive Menu*/
+@media (min-width: 1800px) {
+    .board-section{
+        min-height: 85vh;
+        max-height: 85vh
+    }
+}
+
+@media (max-width: 1000px) {
+    .board-section{
+        max-height: 150vh
+    }
+}
+
+@media (max-width: 850px) {
+    .left-side-cmpl {
+        display: none;
+    }
+
+    .menu__toggle{
+        display: unset !important;
+    }
+
+    .task-description{
+        height: unset;
+        min-height: 40px;
+    }
+}
+
+@media (max-width: 750px) {
+    .backlog-card {
+        flex-direction: column;
+    }
+    .backlog-header {
+        display: none;
+    }
+    .backlog-card-items {
+        width: 100%;
+        min-height: 50px;
+    }
+    .task-urgency {
+        bottom: unset;
+        left: unset;
+        right: 15px;
+        top: 15px;
+    }
+    .big-card-spacer{
+        margin-top: 5px;
+        justify-content: center;
+    } 
+}
+
+@media (max-width: 450px) {
+    .backlog-card {
+        flex-direction: column;
+    }
+
+    .backlog-card-items {
+        width: 100%;
+    }
+
+    .task-urgency {
+        bottom: unset;
+        left: unset;
+        right: 15px;
+        top: 15px;
+    }
+
+    .task-background {
+        padding: 4rem 10px;
+    }
+
+    .form-field-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+    }
+}
+
+@media (max-width: 400px) {
+    .login-form {
+        width: 230px;
+        padding: 3rem 5px 3rem 15px;
+    }
+    .login-field{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .board-section {
+        min-width: 270px;
+    }
+    .board-notecard {
+        min-width: unset;
+        min-width: unset;
+        width: 300px;
+    }
+
+    .backlog-right-side {
+        margin: 2rem 10px;
+    }
+
+    .task-section{
+        margin: 2rem 10px;
+    }
+}
+
+@media (max-width: 350px) {
+    .board-notecard {
+        width: 270px;        
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+}
+
+@media (max-width: 300px) {
+    .board-notecard {
+        width: 240px;
+    }
+}

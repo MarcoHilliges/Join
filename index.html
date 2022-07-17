@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/backlog.css">
+    <link rel="stylesheet" href="./css/task.css">
+    <link rel="stylesheet" href="./css/help.css">
+    <link rel="stylesheet" href="./css/privat.css">
+    <link rel="stylesheet" href="./css/responsiv.css">
+    <script src="./smallest_backend_ever/mini_backend.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/burger_menu.js"></script>
+    <script src="./templates/board.js"></script>
+    <script src="./templates/backlog.js"></script>
+    <script src="./templates/addTask.js"></script>
+    <script src="./templates/archive.js"></script>
+    <script src="./templates/trash.js"></script>
+    <script src="./templates/help.js"></script>
+    <script src="./templates/Imprint.js"></script>
+    <script src="./templates/privacy.js"></script>
+
+
+    <title>Join KanBan Board</title>
+</head>
+
+<body id="body" onload="firstrender()">
+    <!--Login-Section-->
+
+    <div id="loginScreen" class="login-screen">
+        <div class="login">
+            <form class="login-form" id="sectionForm">
+                <div class="login-field">
+                    <label class="llabel" for="fname">Login Name:</label>
+                    <input class="linput" type="text" style='color: #d6cecc; background-color: unset;' id="lname" name="lname" placeholder="enter Name"><br><br>
+                </div>
+                <div class="login-field">
+                    <label class="llabel" for="lname">Password:</label>
+                    <input class="linput" type="password" style='color: #d6cecc; background-color: unset;' id="lpw" name="lpw" placeholder="enter Password"><br><br>
+                </div>
+                <div class="flex">
+                    <div class="login-button">
+                        <input class="lsubmit" type="submit" value="Login" onclick="evaluationLogin()">
+                    </div>
+                    <div style="margin-left: 1rem;" class="login-button">
+                        <input class="lsubmit" type="submit" value="Gast" onclick="evaluationLogin('Gast', '1234')">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Main Section-->
+    <div id="leftSideComplete" class="left-side-cmpl d-none flex-col ft-reg">
+        <div class="nav-sticky flex-col">
+            <div class="nav-logo">
+                <img src="img/newLogo.png" class="main-logo">
+            </div>
+            <div class="nav-menu flex-col">
+                <div class="navbar-nav flex-col">
+                    <a onclick="show(creatHTMLshowBoard()); fillBoard(); switchNavButton('1'); saveActivePageLocal(1)" href="#" id="section1" class="nav-link border-lft active">Board</a>
+                    <a onclick="show(creatHTMLshowBacklog()); fillBacklog(); switchNavButton('2'); saveActivePageLocal(2)" href="#" id="section2" class="nav-link border-lft">Backlog</a>
+                    <a onclick="show(creatHTMLshowAddTask()); switchNavButton('3'); saveActivePageLocal(3)" href="#" id="section3" class="nav-link border-lft">Add task</a>
+                    <a onclick="show(creatHTMLshowArchive()); fillArchive(); switchNavButton('4'); saveActivePageLocal(4)" href="#" id="section4" class="nav-link border-lft">Archive</a>
+                    <a onclick="show(creatHTMLshowTrash()); fillTrash(); switchNavButton('5'); saveActivePageLocal(5)" href="#" id="section5" class="nav-link border-lft">Trash</a>
+                    <hr style="width:90px; margin:1rem 2.5rem">
+                    <a onclick="show(creatHTMLshowHelp());switchNavButton('6'); saveActivePageLocal(6)" href="#" id="section6" class="nav-link border-lft">Help</a>
+                    <a onclick="show(creatHTMLshowAbout());switchNavButton('7'); saveActivePageLocal(7)" href="#" id="section7" class="nav-link border-lft">Imprint</a>
+                    <a onclick="show(creatHTMLshowPrivacy());switchNavButton('8'); saveActivePageLocal(8)" href="#" id="section8" class="nav-link border-lft">Privacy</a>
+                    <hr style="width:90px; margin:1rem 2.5rem">
+                    <a onclick="switchNavButton('9');logout()" href="#" id="section9" class="nav-link border-lft">Logout</a>
+                </div>
+            </div>
+            <div class="nav-copyright">
+                &copy; 2022 by <br> Norman Rahmel<br> Marcel de Zanna<br> Marco Hilliges<br>
+            </div>
+        </div>
+    </div>
+    <div class="right-side-cmpl d-none" id="rightSideComplete">
+    </div>
+    <!--Responsive Menu-->
+
+    <div class="menu d-none" id="show-menu" onclick="showMenu()">
+        <nav class="menu__nav" autofocus>
+            <ul class="menu__list r-list">
+                <li class="menu__group">
+                    <a onclick="show(creatHTMLshowBoard()); fillBoard(); switchNavButton('1')" href="#0" class="menu__link r-link">Board</a>
+                </li>
+                <li class="menu__group">
+                    <a onclick="show(creatHTMLshowBacklog()); fillBacklog();switchNavButton('2')" href="#0" class="menu__link r-link">Backlog</a>
+                </li>
+                <hr style="width:90px; margin:1rem 2.5rem;">
+                <li class="menu__group">
+                    <a onclick="show(creatHTMLshowAddTask()); switchNavButton('3')" href="#0" class="menu__link r-link">Add task</a>
+                </li>
+                <li class="menu__group">
+                    <a onclick="show(creatHTMLshowArchive()); fillArchive(); switchNavButton('4')" href="#0" class="menu__link r-link">Archive</a>
+                </li>
+                <li class="menu__group">
+                    <a onclick="show(creatHTMLshowTrash()); fillTrash(); switchNavButton('5')" href="#0" class="menu__link r-link">Trash</a>
+                </li>
+                <hr style="width:90px; margin:1rem 2.5rem">
+                <li class="menu__group">
+                    <a onclick="show(creatHTMLshowHelp());switchNavButton('6')" href="#0" class="menu__link r-link">Help</a>
+                </li>
+                <li class="menu__group">
+                    <a onclick="show(creatHTMLshowAbout());switchNavButton('7')" href="#0" class="menu__link r-link">Imprint</a>
+                </li>
+                <li class="menu__group">
+                    <a onclick="show(creatHTMLshowPrivacy());switchNavButton('8')" href="#0" class="menu__link r-link">Privacy</a>
+                </li>
+                <hr style="width:90px; margin:1rem 2.5rem">
+                <li class="menu__group" style="margin-bottom: 20px;">
+                    <a onclick="switchNavButton('9');logout()" href="#0" class="menu__link r-link">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <button class="menu__toggle r-button" type="button">
+            <span class="menu__hamburger m-hamburger">
+                <span class="m-hamburger__label">
+                    <span class="menu__toggle-hint screen-reader">Open menu</span>
+                </span>
+            </span>
+        </button>
+    </div>
+    <div id="overlay" class="d-none" onclick="closeStatusChange()">.</div>
+</body>
+
+</html>
